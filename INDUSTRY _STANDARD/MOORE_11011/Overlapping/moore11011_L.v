@@ -27,47 +27,48 @@ module moore11011_L(out, in, clk, rst);
       S0 :							// 1
         begin
           if(in)
-            next <= S1;
+            next = S1;
           else
-            next <= S0;
+            next = S0;
         end
       S1 :							// 10
         begin
           if(in)
-            next <= S2;
+            next = S2;
           else
-            next <= S0;
+            next = S0;
         end
       S2 :							// 101
         begin
           if(~in)
-            next <= S3;
+            next = S3;
           else
-            next <= S2;
+            next = S2;
         end
       S3 :							// 1011
         begin
           if(in)
-            next <= S4;
+            next = S4;
           else
-            next <= S0;
+            next = S0;
         end
       S4 :							// 10110
         begin
           if(in)
-            next <= S5;
+            next = S5;
           else
-            next <= S0;
+            next = S0;
         end
       S5 :
         begin
           if(in)
-            next <= S2;
+            next = S2;
           else
-            next <= S3;
+            next = S3;
         end
     endcase
   end
   
   assign out = ((state==S5)?1:0);
+  
 endmodule
